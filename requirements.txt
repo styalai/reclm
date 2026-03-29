@@ -1,0 +1,6 @@
+huggingface_hub
+datasets
+tqdm
+numpy
+transformers
+#install torch with uv add torch torchvision --index-url https://download.pytorch.org/whl/cu126 --frozen
