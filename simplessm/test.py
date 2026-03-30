@@ -11,3 +11,4 @@ conf = Config(
 model = SSM(conf).to("cuda").eval()
 print(model(torch.randn(1, 768).cuda()))
 print(model.h)
+
