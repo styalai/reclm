@@ -1,5 +1,6 @@
 import torch 
 import torch.nn as nn
+from dataclasses import dataclass
 
 @dataclass
 class Config:
@@ -16,6 +17,18 @@ class SSM(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
-        self.A = nn.Parameter(torch.emty(config.n_embd, config.n_embd))
-        self.B = nn.Parameter(torch.emty(config.n_embd, config.n_embd))
-        self.h = self.register_buffer("h")
+        self.A = nn.Parameter(torch.randn(config.n_embd, config.n_embd))
+        self.B = nn.Parameter(torch.randn(config.n_embd, config.n_embd))
+        self.C = nn.Linear(config.n_embd, config.n_embd)
+        self.h = self.register_buffer("h", None, persistent=True)
+
+    def forward(self, x):
+        if self.training:
+            pass
+        else:
+            if self.h == None:
+                self.h = self.B * x
+                return self.C(self.h)
+            else:
+                self.h = self.A*self.h + self.B + x
+                return self.C(self.h)

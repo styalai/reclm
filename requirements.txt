@@ -3,4 +3,5 @@ datasets
 tqdm
 numpy
 transformers
-#install torch with uv add torch torchvision --index-url https://download.pytorch.org/whl/cu126 --frozen
+#install torch with: uv add torch torchvision --default-index https://download.pytorch.org/whl/cu126 #--frozen
+# or pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
