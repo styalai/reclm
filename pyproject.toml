@@ -8,6 +8,7 @@ dependencies = [
     "datasets>=4.8.4",
     "huggingface-hub>=1.8.0",
     "numpy>=2.4.4",
+    "tilelang>=0.1.8",
     "tqdm>=4.67.3",
     "transformers>=5.4.0",
 ]
